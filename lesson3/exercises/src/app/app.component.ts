@@ -12,6 +12,7 @@ export class AppComponent {
   height = 0;
   width = 0;
   message = 'Space shuttle ready for takeoff!';
+  takeoffEnabled: boolean = false
 
   handleTakeoff(){
     let result = window.confirm('Are you sure the shuttle is ready for takeoff?');
@@ -20,7 +21,8 @@ export class AppComponent {
       this.height = 10000;
       this.width = 0;
       this.message = 'Shuttle in flight.';
-  
+      this.takeoffEnabled = !this.takeoffEnabled
+        
     }
   }
 
@@ -29,6 +31,7 @@ export class AppComponent {
     this.message = "The shuttle has landed.";
     this.color = "green";
     this.height = 0
+    this.takeoffEnabled = !this.takeoffEnabled
   }
 
   handleAbortMission(){
@@ -37,6 +40,7 @@ export class AppComponent {
       this.message = "Mission aborted.";
       this.color = "red";
       this.height = 0
+      this.takeoffEnabled = !this.takeoffEnabled
     }
   }
 
